@@ -12,16 +12,15 @@ if(navigator.geolocation) {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
 
-      api_url = 'api.openweathermap.org/data/2.5/weather?lat=' +
+      api_url = 'http://api.openweathermap.org/data/2.5/weather?lat=' +
                 lat + '&lon=' +
-                lon + '&units=imperial&APPID=' +
+                lon + '&units=imperial&appid=' +
                 key;
-      console.log(api_url);
+
       $.ajax({
         url: api_url,
         method: 'GET',
         success: function(data){
-          console.log(data);
           var tempr = data.main.temp;
           $('#result').text(tempr + '°');
         }
