@@ -16,11 +16,12 @@ if(navigator.geolocation) {
                 lat + '&lon=' +
                 lon + '&units=imperial&APPID=' +
                 key;
-
+      console.log(api_url);
       $.ajax({
         url: api_url,
         method: 'GET',
-        success: function (data){
+        success: function(data){
+          console.log(data);
           var tempr = data.main.temp;
           $('#result').text(tempr + '°');
         }
